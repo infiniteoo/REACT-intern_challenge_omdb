@@ -51,7 +51,7 @@ const SearchForm = (props) => {
           color="textPrimary"
           gutterBottom
         >
-          Movie Search
+         {/*  Movie Search */}
         </Typography>
 
         <form noValidate autoComplete="off">

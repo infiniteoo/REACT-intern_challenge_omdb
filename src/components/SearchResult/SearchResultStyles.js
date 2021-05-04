@@ -32,5 +32,7 @@ export default makeStyles((theme) => ({
   rightGrid: {
     paddingLeft: "20px",
   },
-  cardPic: {},
+  searchButton: {
+      marginTop: "5px"
+  }
 }));

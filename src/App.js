@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SearchForm from "./components/SearchForm/SearchForm";
 import SearchResult from "./components/SearchResult/SearchResult";
+import BlankSearchResult from "./components/SearchResult/BlankSearchResult";
 import {
   CssBaseline,
   AppBar,
@@ -42,12 +43,19 @@ const App = () => {
               movieBeingSearched={movieBeingSearched}
               setMovieBeingSearched={setMovieBeingSearched}
             />
+            {searchedMovie.title === "" ? <BlankSearchResult/> :
             <SearchResult
-              searchedMovie={searchedMovie}
-              setSearchedMovie={setSearchedMovie}
-              movieBeingSearched={movieBeingSearched}
-              setMovieBeingSearched={setMovieBeingSearched}
-            />
+            searchedMovie={searchedMovie}
+            setSearchedMovie={setSearchedMovie}
+            movieBeingSearched={movieBeingSearched}
+            setMovieBeingSearched={setMovieBeingSearched}
+          />
+            
+            
+            
+            
+            }
+            
 
             <Grid item xs={2}></Grid>
           </Grid>
