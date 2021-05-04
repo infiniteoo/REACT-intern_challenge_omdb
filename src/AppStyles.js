@@ -2,10 +2,27 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 export default makeStyles((theme) => ({
+
+ 
     
-    container: {
+    /* container: {
         backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(8,0,6)
+        padding: theme.spacing(8,0,6),
+        display: "flex",
+        flexFlow: "row",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        
+        
+      
+     
+    }, */
+    pic: {
+        borderRadius: '50%',
+        height: '75%',
+       
+    
     },
 
     iconLeft: {
