@@ -16,7 +16,7 @@ const SearchForm = () => {
     const classes = useStyles();
     return (
         <>
-        <Grid item xs={2}></Grid>
+        
             <Grid item xs={4}>
             <Typography
                 variant="h2"
@@ -24,7 +24,7 @@ const SearchForm = () => {
                 color="textPrimary"
                 gutterBottom
               >
-                Search for Movies
+                Movie Search
               </Typography>
 
               <form noValidate autoComplete="off">

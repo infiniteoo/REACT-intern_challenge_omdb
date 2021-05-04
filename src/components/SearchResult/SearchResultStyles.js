@@ -20,9 +20,29 @@ export default makeStyles((theme) => ({
     },
 
      
-    searchButton: {
-        margin: '10px 0px 10px 0px'
-    }
+    
+
+    card: {
+        border: '5px solid black'
+    }, 
+    root: {
+       /*  maxWidth: 345, */
+        backgroundColor: theme.palette.background.paper,
+        
+        display: "flex",
+        flexFlow: "column",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        /* border: '5px solid black' */
+      },
+      media: {
+        height: 140,
+        
+      },
+      rightGrid: {
+          paddingLeft: "20px"
+      }
     
         
 

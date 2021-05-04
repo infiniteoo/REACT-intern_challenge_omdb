@@ -35,7 +35,7 @@ const App = () => {
         
         <div className={classes.container}>
           <Grid id="top-row" container spacing={24}>
-
+          <Grid item xs={2}></Grid>
             <SearchForm /> 
             <SearchResult />
             
