@@ -3,7 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     
-    
+    container: {
+        backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing(8,0,6)
+    },
 
     iconLeft: {
         marginRight: '20px',
@@ -22,7 +25,8 @@ export default makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingBottom: '10px'
        
     
     }
