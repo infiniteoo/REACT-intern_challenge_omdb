@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import API from "../../utils/API";
+import env from "react-dotenv";
+
 import {
     CssBaseline,
     AppBar,
@@ -11,9 +14,43 @@ import {
     Paper,
   } from "@material-ui/core";
   import useStyles from "./SearchFormStyles";
+import { ContactSupportOutlined } from '@material-ui/icons';
 
 const SearchForm = () => {
+
+  const [searchedMovie, setSearchedMovie] = useState({
+    title: "",
+    rated: "",
+    poster: "",
+    runtime: "",
+  })
+
+  const [movieBeingSearched, setMovieBeingSearched] = useState("")
     const classes = useStyles();
+   
+    const handleClick = (e) => {
+      e.preventDefault();
+     console.log('before search', movieBeingSearched)
+      API.search(movieBeingSearched)
+      .then(res => {
+          /* this.setState({ result: res.data }) */
+          // de-construct the data we need from the return object
+          let { Title:title, Rated:rated, Poster:poster, Runtime:runtime } = res.data 
+          /* console.log(title, rated, runtime, poster) */
+        console.log(res.data)
+
+       setSearchedMovie({title: title, rated:rated, poster:poster, runtime:runtime})
+       console.log("contents of search movie", searchedMovie)
+       console.log(searchedMovie)
+        })
+      .catch(err => console.log(err));
+    }
+
+    const handleChange = (e) => {
+      setMovieBeingSearched(e.target.value)
+      console.log(movieBeingSearched)
+    }
+
     return (
         <>
         
@@ -33,6 +70,7 @@ const SearchForm = () => {
                   label="Enter title..."
                   variant="outlined"
                   fullWidth
+                  onChange={handleChange}
                 />
                 <Button
                   className={classes.searchButton}
@@ -40,6 +78,7 @@ const SearchForm = () => {
                   color="primary"
                   fullWidth
                   size="large"
+                  onClick={(e)=>handleClick(e)}
                 >
                   Search
                 </Button>
