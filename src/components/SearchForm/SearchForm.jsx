@@ -14,41 +14,35 @@ import {
     Paper,
   } from "@material-ui/core";
   import useStyles from "./SearchFormStyles";
-import { ContactSupportOutlined } from '@material-ui/icons';
+import { ContactSupportOutlined, PrintDisabledTwoTone } from '@material-ui/icons';
 
-const SearchForm = () => {
+const SearchForm = (props) => {
 
-  const [searchedMovie, setSearchedMovie] = useState({
-    title: "",
-    rated: "",
-    poster: "",
-    runtime: "",
-  })
-
-  const [movieBeingSearched, setMovieBeingSearched] = useState("")
+ 
     const classes = useStyles();
    
     const handleClick = (e) => {
       e.preventDefault();
-     console.log('before search', movieBeingSearched)
-      API.search(movieBeingSearched)
+    
+      API.search(props.movieBeingSearched)
       .then(res => {
           /* this.setState({ result: res.data }) */
           // de-construct the data we need from the return object
-          let { Title:title, Rated:rated, Poster:poster, Runtime:runtime } = res.data 
+          let { Title:title, Rated:rated, Poster:poster, Runtime:runtime, Plot:plot } = res.data 
           /* console.log(title, rated, runtime, poster) */
         console.log(res.data)
 
-       setSearchedMovie({title: title, rated:rated, poster:poster, runtime:runtime})
-       console.log("contents of search movie", searchedMovie)
-       console.log(searchedMovie)
+       props.setSearchedMovie({title: title, rated:rated, poster:poster, runtime:runtime, plot:plot})
+       const printIt = () => console.log(props.searchedMovie)
+       printIt()
+       
         })
       .catch(err => console.log(err));
     }
 
     const handleChange = (e) => {
-      setMovieBeingSearched(e.target.value)
-      console.log(movieBeingSearched)
+      props.setMovieBeingSearched(e.target.value)
+      console.log(props.movieBeingSearched)
     }
 
     return (

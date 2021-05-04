@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchForm from './components/SearchForm/SearchForm'
 import SearchResult from './components/SearchResult/SearchResult'
 import {
@@ -16,7 +16,18 @@ import { Movie } from "@material-ui/icons";
 
 import useStyles from "./AppStyles";
 
+
 const App = () => {
+
+  const [searchedMovie, setSearchedMovie] = useState({
+    title: "",
+    rated: "",
+    poster: "",
+    runtime: "",
+    plot: ""
+  })
+
+  const [movieBeingSearched, setMovieBeingSearched] = useState("")
   const classes = useStyles();
 
   return (
@@ -36,8 +47,19 @@ const App = () => {
         <div className={classes.container}>
           <Grid id="top-row" container spacing={24}>
           <Grid item xs={2}></Grid>
-            <SearchForm /> 
-            <SearchResult />
+            <SearchForm 
+              searchedMovie={searchedMovie} 
+              setSearchedMovie={setSearchedMovie}
+              movieBeingSearched={movieBeingSearched}
+              setMovieBeingSearched={setMovieBeingSearched}
+              
+              /> 
+            <SearchResult 
+                searchedMovie={searchedMovie} 
+                setSearchedMovie={setSearchedMovie}
+                movieBeingSearched={movieBeingSearched}
+                setMovieBeingSearched={setMovieBeingSearched}
+            />
             
             
             <Grid item xs={2}></Grid>
