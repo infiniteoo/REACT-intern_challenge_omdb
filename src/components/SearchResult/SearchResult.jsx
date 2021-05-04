@@ -1,15 +1,9 @@
 import React from "react";
 import {
-  CssBaseline,
   Card,
-  AppBar,
-  Toolbar,
   Typography,
-  Container,
-  TextField,
   Button,
   Grid,
-  Paper,
   Box,
   CardMedia,
   CardActionArea,
@@ -36,35 +30,35 @@ const SearchResult = (props) => {
             <CardMedia
               component="img"
               alt={props.searchedMovie.title}
-              height="140"
-               image={props.searchedMovie.poster}
-              title="Contemplative Reptile"
+              height="400px"
+              image={props.searchedMovie.poster}
+              title={props.searchedMovie.title}
+              className={classes.cardpic}
+              style={{ objectFit: "contain",  padding: "10px" }}
             />
           </CardActionArea>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-            {props.searchedMovie.title}
+              {props.searchedMovie.title} | {props.searchedMovie.rated} |{" "}
+              {props.searchedMovie.runtime}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-            {props.searchedMovie.plot}
+              {props.searchedMovie.plot}
             </Typography>
             <form noValidate autoComplete="off">
               <Box textAlign="center">
-              <Button
-                className={classes.searchButton}
-                variant="contained"
-                color="primary"
-                size="large"
-              >
-                Add Finalist
-              </Button>
+                <Button
+                  className={classes.searchButton}
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                >
+                  Add Finalist
+                </Button>
               </Box>
-              
             </form>
           </CardContent>
         </Card>
-
-        {/* results of search */}
       </Grid>
     </>
   );
