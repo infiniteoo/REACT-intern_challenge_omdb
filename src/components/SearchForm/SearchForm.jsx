@@ -31,8 +31,10 @@ const SearchForm = (props) => {
           runtime: runtime,
           plot: plot,
         });
-        const printIt = () => console.log(props.searchedMovie);
-        printIt();
+        
+        // clear the input form
+        props.setMovieBeingSearched("")
+
       })
       .catch((err) => console.log(err));
   };
@@ -41,6 +43,17 @@ const SearchForm = (props) => {
     props.setMovieBeingSearched(e.target.value);
     console.log(props.movieBeingSearched);
   };
+
+  const enterPressed = (event) =>{
+    var code = event.keyCode || event.which;
+    if (code === 13) {
+      //13 is the enter keycode
+      //Do stuff in here
+     
+     handleClick(event)
+     
+    }
+  }
 
   return (
     <>
@@ -54,13 +67,15 @@ const SearchForm = (props) => {
          {/*  Movie Search */}
         </Typography>
 
-        <form noValidate autoComplete="off">
+        {/* <form noValidate autoComplete="off"> */}
           <TextField
             id="outlined-basic"
             label="Enter title..."
             variant="outlined"
             fullWidth
             onChange={handleChange}
+            onKeyPress={enterPressed}
+            value={props.movieBeingSearched}
           />
           <Button
             className={classes.searchButton}
@@ -72,7 +87,7 @@ const SearchForm = (props) => {
           >
             Search
           </Button>
-        </form>
+       {/*  </form> */}
         <Box style={{ textAlign: "center", display: "flex" }}>
           <img src={poster} alt="" className={classes.awardPic} />
           <Typography

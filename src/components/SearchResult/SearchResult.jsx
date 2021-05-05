@@ -14,6 +14,13 @@ import useStyles from "./SearchResultStyles";
 
 const SearchResult = (props) => {
   const classes = useStyles();
+
+  const addFinalist = (movieObject) => {
+
+    
+
+
+  }
   return (
     <>
       <Grid item xs={4} className={classes.rightGrid}>
@@ -52,8 +59,11 @@ const SearchResult = (props) => {
                   variant="contained"
                   color="primary"
                   size="large"
+                  onClick={()=>{
+                    props.setFinalists(oldArray => [...props.finalists, props.searchedMovie])}}
                 >
                   Add Finalist
+
                 </Button>
               </Box>
             </form>

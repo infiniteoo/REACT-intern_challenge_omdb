@@ -19,10 +19,7 @@ export default makeStyles((theme) => ({
     height: "75%",
   },
 
-  iconLeft: {
-    marginRight: "20px",
-    fontSize: "55px",
-  },
+  
   iconRight: {
     marginLeft: "20px",
     fontSize: "55px",

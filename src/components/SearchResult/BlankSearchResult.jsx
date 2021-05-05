@@ -9,7 +9,7 @@ import {
   CardActionArea,
   CardContent,
 } from "@material-ui/core";
-
+import film from '../../assets/film.jpg'
 import useStyles from "./SearchResultStyles";
 
 const SearchResult = (props) => {
@@ -31,16 +31,15 @@ const SearchResult = (props) => {
               component="img"
              /*  alt={props.searchedMovie.title} */
               height="400px"
-              /* image={props.searchedMovie.poster}
-              title={props.searchedMovie.title} */
+              image={film}
+              title={"Enter movie titles on the left to see results!"}
               className={classes.cardpic}
               style={{ objectFit: "contain",  padding: "10px" }}
             />
           </CardActionArea>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {/* {props.searchedMovie.title}  {props.searchedMovie.rated} {" "}
-              {props.searchedMovie.runtime} */}
+            Enter movie titles on the left to begin searching!
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
             {/*   {props.searchedMovie.plot} */}

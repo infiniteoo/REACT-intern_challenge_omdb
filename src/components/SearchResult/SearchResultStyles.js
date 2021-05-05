@@ -30,7 +30,7 @@ export default makeStyles((theme) => ({
     height: 140,
   },
   rightGrid: {
-    paddingLeft: "20px",
+  /*   paddingLeft: "20px", */
   },
   searchButton: {
       marginTop: "5px"

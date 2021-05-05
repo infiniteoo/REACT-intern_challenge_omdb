@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchForm from "./components/SearchForm/SearchForm";
 import SearchResult from "./components/SearchResult/SearchResult";
 import BlankSearchResult from "./components/SearchResult/BlankSearchResult";
+import Finalist from './components/Finalist/Finalist'
 import {
   CssBaseline,
   AppBar,
@@ -9,7 +10,6 @@ import {
   Typography,
   Grid,
 } from "@material-ui/core";
-
 
 import useStyles from "./AppStyles";
 
@@ -23,7 +23,13 @@ const App = () => {
   });
 
   const [movieBeingSearched, setMovieBeingSearched] = useState("");
+  const [finalists, setFinalists] = useState([])
+  
   const classes = useStyles();
+
+  useEffect(() => {
+    console.log('change in finalists: ', finalists)
+  }, [finalists])
 
   return (
     <>
@@ -43,22 +49,39 @@ const App = () => {
               movieBeingSearched={movieBeingSearched}
               setMovieBeingSearched={setMovieBeingSearched}
             />
-            {searchedMovie.title === "" ? <BlankSearchResult/> :
-            <SearchResult
-            searchedMovie={searchedMovie}
-            setSearchedMovie={setSearchedMovie}
-            movieBeingSearched={movieBeingSearched}
-            setMovieBeingSearched={setMovieBeingSearched}
-          />
-            
-            
-            
-            
-            }
-            
+            {searchedMovie.title === "" ? (
+              <BlankSearchResult />
+            ) : (
+              <SearchResult
+                searchedMovie={searchedMovie}
+                setSearchedMovie={setSearchedMovie}
+                movieBeingSearched={movieBeingSearched}
+                setMovieBeingSearched={setMovieBeingSearched}
+                finalists={finalists}
+                setFinalists={setFinalists}
+              />
+            )}
 
             <Grid item xs={2}></Grid>
+           
           </Grid>
+
+          {finalists[0] ? finalists.map((finalist) => (
+            <Finalist
+              searchedMovie={searchedMovie}
+              setSearchedMovie={setSearchedMovie}
+              movieBeingSearched={movieBeingSearched}
+              setMovieBeingSearched={setMovieBeingSearched}
+              finalists={finalists}
+              setFinalists={setFinalists}
+            
+            /> 
+
+          ))
+          
+          
+          : null}
+          
         </div>
       </main>
     </>
