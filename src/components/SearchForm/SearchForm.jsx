@@ -12,27 +12,33 @@ const SearchForm = (props) => {
 
     API.search(props.movieBeingSearched)
       .then((res) => {
-        // de-construct the data we need from the return object
-        let {
-          Title: title,
-          Rated: rated,
-          Poster: poster,
-          Runtime: runtime,
-          Plot: plot,
-        } = res.data;
+        console.log(res);
+        // make sure we get back a positive response
+        if (res.data.Response === "False") {
+          alert('No results found.  Try again.')
+          // de-construct the data we need from the return object
+        } else {
+          let {
+            Title: title,
+            Rated: rated,
+            Poster: poster,
+            Runtime: runtime,
+            Plot: plot,
+          } = res.data;
 
-        console.log(res.data);
+          console.log(res.data);
 
-        props.setSearchedMovie({
-          title: title,
-          rated: rated,
-          poster: poster,
-          runtime: runtime,
-          plot: plot,
-        });
+          props.setSearchedMovie({
+            title: title,
+            rated: rated,
+            poster: poster,
+            runtime: runtime,
+            plot: plot,
+          });
 
-        // clear the input form
-        props.setMovieBeingSearched("");
+          // clear the input form
+          props.setMovieBeingSearched("");
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -96,19 +102,13 @@ const SearchForm = (props) => {
             Cast your votes for the Shopify™ Movie of the Year! <br />
             <br />
             Enter movie titles into the search bar to nominate your favorite
-            movie to be considered for this prestigious award! <br /><br/>
-            <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            
-            >
-            Please pick 5 movies to nominate
-            </Typography> 
-            
+            movie to be considered for this prestigious award! <br />
+            <br />
+            <Typography variant="h5" align="center" color="textSecondary">
+              Please pick 5 movies to nominate
+            </Typography>
             <br />
             <br />
-           
             <Typography
               variant="subtitle2"
               align="center"
