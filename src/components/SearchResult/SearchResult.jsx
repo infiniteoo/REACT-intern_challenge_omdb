@@ -22,13 +22,13 @@ const SearchResult = (props) => {
     // check for dupliates 
     let filteredArray = props.finalists.filter(item => item.title === movieObject.title)
     console.log('len fil array:', filteredArray.length)
-    if(filteredArray.length === 0){
+    if(filteredArray.length === 0 && props.finalists.length < 5){
       props.setFinalists((oldArray) => [
         ...props.finalists,
         movieObject,
       ]);
     } else {
-      alert('Movies only allowed once!')
+      alert('No duplicates and no more than five movies.')
     }
 
 
