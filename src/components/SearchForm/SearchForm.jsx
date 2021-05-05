@@ -96,9 +96,19 @@ const SearchForm = (props) => {
             Cast your votes for the Shopify™ Movie of the Year! <br />
             <br />
             Enter movie titles into the search bar to nominate your favorite
-            movie to be considered for this prestigious award!
+            movie to be considered for this prestigious award! <br /><br/>
+            <Typography
+            variant="h5"
+            align="center"
+            color="textSecondary"
+            
+            >
+            Please pick 5 movies to nominate
+            </Typography> 
+            
             <br />
             <br />
+           
             <Typography
               variant="subtitle2"
               align="center"

@@ -18,6 +18,24 @@ const SearchResult = (props) => {
   const addFinalist = (movieObject) => {
     // covert existing way to use this method so we can 1) check for duplicates in
     // finalists array and 2) ensure the cap of the finalists array never exceeds 5
+
+    // check for dupliates 
+    let filteredArray = props.finalists.filter(item => item.title === movieObject.title)
+    console.log('len fil array:', filteredArray.length)
+    if(filteredArray.length === 0){
+      props.setFinalists((oldArray) => [
+        ...props.finalists,
+        movieObject,
+      ]);
+    } else {
+      alert('Movies only allowed once!')
+    }
+
+
+    
+
+
+
   };
   return (
     <>
@@ -58,10 +76,8 @@ const SearchResult = (props) => {
                   color="primary"
                   size="large"
                   onClick={() => {
-                    props.setFinalists((oldArray) => [
-                      ...props.finalists,
-                      props.searchedMovie,
-                    ]);
+                    addFinalist(props.searchedMovie)
+                    
                   }}
                 >
                   Add Finalist
