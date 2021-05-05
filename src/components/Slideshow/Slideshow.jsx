@@ -1,9 +1,10 @@
 import React from 'react'
 import useStyles from "./SlideshowStyles";
+import {Box, Typography} from '@material-ui/core'
 
 const Slideshow = (props) => {
     const classes = useStyles();
-    const colors = ["#0088FE", "#00C49F", "#FFBB28", "#ff9f29", "#ed29ff"];
+    const colors = ["#0088FE", "#00C49F", "#FFBB28", "#ff9f29","#FFBB28"];
     const delay = 5000;
     
     
@@ -37,30 +38,30 @@ const Slideshow = (props) => {
             className={classes.slideshowSlider}
             style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
           >
-          {/* <img src={props.finalists[0].poster} alt="" className="src"/> */}
+        
           
               
             {colors.map((backgroundColor, index) => (
+              <>
+              
               <div
                 className={classes.slide}
                 key={index}
                 style={{ backgroundColor }}
                 
-              ><img src={props.finalists[index].poster} alt="" className="src"/></div>
+              >
+                  <Typography variant="h3" align="center" color="textSecondary">{props.finalists[index].title}</Typography>
+                <img src={props.finalists[index].poster} alt="" className="src" height="500"/>
+                <Typography variant="h3" align="center">#{index+1}</Typography>
+                <br/>
+                <Typography variant="h3" align="center"></Typography>
+                
+              </div>
+              </>
             ))}
           </div>
     
-          <div className={classes.slideshowDots}>
-            {colors.map((_, idx) => (
-              <div
-                key={idx}
-                className={`slideshowDot${index === idx ? " active" : ""}`}
-                onClick={() => {
-                  setIndex(idx);
-                }}
-              ></div>
-            ))}
-          </div>
+         
         </div>
       );
     

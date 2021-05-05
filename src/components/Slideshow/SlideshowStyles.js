@@ -5,39 +5,28 @@ export default makeStyles((theme) => ({
 
 slideshow: {
   margin: "0 auto",
+  padding: "0 auto",
   overflow: "hidden",
   maxWidth: "500px"
 },
 
 slideshowSlider: {
+  margin: "0 auto",
+  padding: "0 auto",
   whiteSpace: "nowrap",
   transition: "ease 1000ms"
 },
 
 slide: {
+  margin: "0 auto",
+  padding: "0 auto",
   display: "inline-block",
   height: "400px",
   width: "100%",
   bordeRadius: "30%"
 },
 
-/* Buttons */
 
-slideshowDots: {
-  textAlign: "center"
-},
 
-slideshowDot: {
-  display: "inline-block",
-  height: "20px",
-  width: "20px",
-  bordeRadius: "50%",
-  cursor: "pointer",
-  margin: "15px 7px 0px",
-  backgroundColor: "#c4c4c4"
-},
 
-"slideshowDot.active": {
-  backgroundColor: "#6a0dad"
-}
 }));
