@@ -23,13 +23,14 @@ const Finalist = (props) => {
   const classes = useStyles();
 
   const removeFinalist = (e) => {
-    let arrayIndex = e.currentTarget.getAttribute("arialabel")
+    let arrayIndex = e.currentTarget.getAttribute("arialabel") - 1;
     console.log(arrayIndex)
-    let newArray = props.finalists.splice(arrayIndex, 1);
+    props.finalists.splice(arrayIndex, 1);
+    console.log('this should be the same array without that one Xed', props.finalists)
     
     props.setFinalists((oldArray) => [
+        ...props.finalists,
         
-        ...newArray,
       ]);
     
    
