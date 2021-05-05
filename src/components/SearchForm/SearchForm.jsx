@@ -12,7 +12,6 @@ const SearchForm = (props) => {
 
     API.search(props.movieBeingSearched)
       .then((res) => {
-        
         // de-construct the data we need from the return object
         let {
           Title: title,
@@ -21,7 +20,7 @@ const SearchForm = (props) => {
           Runtime: runtime,
           Plot: plot,
         } = res.data;
-        
+
         console.log(res.data);
 
         props.setSearchedMovie({
@@ -31,10 +30,9 @@ const SearchForm = (props) => {
           runtime: runtime,
           plot: plot,
         });
-        
-        // clear the input form
-        props.setMovieBeingSearched("")
 
+        // clear the input form
+        props.setMovieBeingSearched("");
       })
       .catch((err) => console.log(err));
   };
@@ -44,16 +42,15 @@ const SearchForm = (props) => {
     console.log(props.movieBeingSearched);
   };
 
-  const enterPressed = (event) =>{
+  const enterPressed = (event) => {
     var code = event.keyCode || event.which;
     if (code === 13) {
       //13 is the enter keycode
       //Do stuff in here
-     
-     handleClick(event)
-     
+
+      handleClick(event);
     }
-  }
+  };
 
   return (
     <>
@@ -64,30 +61,30 @@ const SearchForm = (props) => {
           color="textPrimary"
           gutterBottom
         >
-         {/*  Movie Search */}
+          {/*  Movie Search */}
         </Typography>
 
         {/* <form noValidate autoComplete="off"> */}
-          <TextField
-            id="outlined-basic"
-            label="Enter title..."
-            variant="outlined"
-            fullWidth
-            onChange={handleChange}
-            onKeyPress={enterPressed}
-            value={props.movieBeingSearched}
-          />
-          <Button
-            className={classes.searchButton}
-            variant="contained"
-            color="primary"
-            fullWidth
-            size="large"
-            onClick={(e) => handleClick(e)}
-          >
-            Search
-          </Button>
-       {/*  </form> */}
+        <TextField
+          id="outlined-basic"
+          label="Enter title..."
+          variant="outlined"
+          fullWidth
+          onChange={handleChange}
+          onKeyPress={enterPressed}
+          value={props.movieBeingSearched}
+        />
+        <Button
+          className={classes.searchButton}
+          variant="contained"
+          color="primary"
+          fullWidth
+          size="large"
+          onClick={(e) => handleClick(e)}
+        >
+          Search
+        </Button>
+        {/*  </form> */}
         <Box style={{ textAlign: "center", display: "flex" }}>
           <img src={poster} alt="" className={classes.awardPic} />
           <Typography

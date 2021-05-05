@@ -27,8 +27,7 @@ export default makeStyles((theme) => ({
     /*  justifyContent: "center",
     alignItems: "center",  */
   },
-  
-  
+
   iconRight: {
     marginLeft: "20px",
     fontSize: "55px",

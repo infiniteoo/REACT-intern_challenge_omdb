@@ -16,13 +16,9 @@ const SearchResult = (props) => {
   const classes = useStyles();
 
   const addFinalist = (movieObject) => {
-
     // covert existing way to use this method so we can 1) check for duplicates in
     // finalists array and 2) ensure the cap of the finalists array never exceeds 5
-    
-
-
-  }
+  };
   return (
     <>
       <Grid item xs={4} className={classes.rightGrid}>
@@ -43,7 +39,7 @@ const SearchResult = (props) => {
               image={props.searchedMovie.poster}
               title={props.searchedMovie.title}
               className={classes.cardpic}
-              style={{ objectFit: "contain",  padding: "10px" }}
+              style={{ objectFit: "contain", padding: "10px" }}
             />
           </CardActionArea>
           <CardContent>
@@ -61,11 +57,14 @@ const SearchResult = (props) => {
                   variant="contained"
                   color="primary"
                   size="large"
-                  onClick={()=>{
-                    props.setFinalists(oldArray => [...props.finalists, props.searchedMovie])}}
+                  onClick={() => {
+                    props.setFinalists((oldArray) => [
+                      ...props.finalists,
+                      props.searchedMovie,
+                    ]);
+                  }}
                 >
                   Add Finalist
-
                 </Button>
               </Box>
             </form>

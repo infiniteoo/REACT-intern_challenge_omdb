@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import SearchForm from "./components/SearchForm/SearchForm";
 import SearchResult from "./components/SearchResult/SearchResult";
 import BlankSearchResult from "./components/SearchResult/BlankSearchResult";
-import Finalist from './components/Finalist/Finalist'
+import Finalist from "./components/Finalist/Finalist";
 import {
   CssBaseline,
   AppBar,
   Toolbar,
   Typography,
   Grid,
-  Container
+  Container,
 } from "@material-ui/core";
 
 import useStyles from "./AppStyles";
@@ -24,13 +24,13 @@ const App = () => {
   });
 
   const [movieBeingSearched, setMovieBeingSearched] = useState("");
-  const [finalists, setFinalists] = useState([])
-  
+  const [finalists, setFinalists] = useState([]);
+
   const classes = useStyles();
 
   useEffect(() => {
-    console.log('change in finalists: ', finalists)
-  }, [finalists])
+    console.log("change in finalists: ", finalists);
+  }, [finalists]);
 
   return (
     <>
@@ -64,28 +64,23 @@ const App = () => {
             )}
 
             <Grid item xs={2}></Grid>
-           
           </Grid>
-          
-          <Container className={classes.cardGrid} maxWidth="lg"> 
-          {finalists[0] ? finalists.map((finalist, index) => (
-            <>
-            
-            <Finalist
-              title={finalist.title}
-              poster={finalist.poster}
-              description={finalist.description}
-              runtime={finalist.runtime}
-              rated={finalist.rated}
-              index={index+1}
-            
-            /> 
-            </>
 
-          ))
-          
-          
-          : null}
+          <Container className={classes.cardGrid} maxWidth="lg">
+            {finalists[0]
+              ? finalists.map((finalist, index) => (
+                  <>
+                    <Finalist
+                      title={finalist.title}
+                      poster={finalist.poster}
+                      description={finalist.description}
+                      runtime={finalist.runtime}
+                      rated={finalist.rated}
+                      index={index + 1}
+                    />
+                  </>
+                ))
+              : null}
           </Container>
         </div>
       </main>
