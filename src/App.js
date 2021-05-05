@@ -10,9 +10,12 @@ import {
   Typography,
   Grid,
   Container,
+  Box,
+  Button
 } from "@material-ui/core";
 
 import useStyles from "./AppStyles";
+import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom";
 
 const App = () => {
   const [searchedMovie, setSearchedMovie] = useState({
@@ -81,7 +84,35 @@ const App = () => {
                   </>
                 ))
               : null}
+
+            
           </Container>
+         
+           {finalists.length === 5 ? 
+           
+            <Box textAlign="center">
+                <Button
+                  className={classes.searchButton}
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={() => {
+                    alert('see nominations')
+                    
+                  }}
+                >
+                  See Nominations
+                </Button>
+            </Box>
+            
+            
+            
+            : null
+
+
+             }
+          
+         
         </div>
       </main>
     </>
