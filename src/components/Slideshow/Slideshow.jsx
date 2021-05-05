@@ -5,7 +5,7 @@ import {Box, Typography} from '@material-ui/core'
 const Slideshow = (props) => {
     const classes = useStyles();
     const colors = ["#0088FE", "#00C49F", "#FFBB28", "#ff9f29","#FFBB28"];
-    const delay = 5000;
+    const delay = 3000;
     
     
       const [index, setIndex] = React.useState(0);
@@ -50,11 +50,15 @@ const Slideshow = (props) => {
                 style={{ backgroundColor }}
                 
               >
-                  <Typography variant="h3" align="center" color="textSecondary">{props.finalists[index].title}</Typography>
-                <img src={props.finalists[index].poster} alt="" className="src" height="500"/>
-                <Typography variant="h3" align="center">#{index+1}</Typography>
-                <br/>
-                <Typography variant="h3" align="center"></Typography>
+              <Typography variant="h3" align="center" color="textSecondary">
+                  {props.finalists[index].title}
+              </Typography>
+                <img src={props.finalists[index].poster} alt="" className="src" height="400"/>
+                <Typography variant="h2" align="center">#{index+1}</Typography>
+                
+                <Typography variant="h3" align="center" color="secondary">Shopify</Typography>
+                <Typography variant="h4" align="center" color="textSecondary">Movie of the Year</Typography>
+                <Typography variant="h4" align="center" color="primary">Nominee!</Typography>
                 
               </div>
               </>
