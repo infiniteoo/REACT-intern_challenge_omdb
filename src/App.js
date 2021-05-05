@@ -66,12 +66,21 @@ const App = () => {
             <Grid item xs={2}></Grid>
            
           </Grid>
+          
           <Container className={classes.cardGrid} maxWidth="lg"> 
-          {finalists[0] ? finalists.map((finalist) => (
+          {finalists[0] ? finalists.map((finalist, index) => (
+            <>
+            
             <Finalist
               title={finalist.title}
+              poster={finalist.poster}
+              description={finalist.description}
+              runtime={finalist.runtime}
+              rated={finalist.rated}
+              index={index+1}
             
             /> 
+            </>
 
           ))
           

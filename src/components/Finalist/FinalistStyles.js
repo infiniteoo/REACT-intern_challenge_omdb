@@ -30,7 +30,13 @@ export default makeStyles((theme) => ({
        justifyContent: "center",
       alignItems: "center", 
     },
-    card: { height: "100%", display: "flex", flexDirection: "row" },
+    card: { 
+        height: "100%", 
+        display: "flex", 
+        flexDirection: "row",
+        paddingLeft: "10px",
+        marginLeft: "5px"
+    },
     cardMedia: { paddingTop: "56.25%" },
     cardContent: { flexGrow: 1 },
     footer: {

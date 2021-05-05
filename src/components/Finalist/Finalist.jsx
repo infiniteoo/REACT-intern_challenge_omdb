@@ -14,6 +14,8 @@ import {
     Button,
   } from "@material-ui/core";
 
+  import CancelIcon from '@material-ui/icons/Cancel';
+
 import useStyles from './FinalistStyles.js'
 
 const Finalist = (props) => {
@@ -22,24 +24,38 @@ const Finalist = (props) => {
      
           <Grid container spacing={12}>
            
-            <Grid item  xs={12} sm={6} md={12}>
+            <Grid item  xs={1} sm={3} md={12}>
               <Card className={classes.card}>
+              <Button size="small" color="primary" startIcon={<CancelIcon/>}/>
+                    
+                
+              <Typography
+                color="textPrimary"
+                variant="h8"
+              >
+                   #{props.index}
+              </Typography>
+              <Typography
+                variant="h6"
+                align="center"
+                color="textSecondary"
+                style={{paddingLeft: "5px"}}
+              >
+                 {props.title} 
+              </Typography>
                 <CardMedia
+                  component="img"
+                  alt={props.title}
+                  height="100px"
                   className={classes.cardMedia}
                   image={props.poster}
                   title={props.title}
+                  style={{ objectFit: "contain",  padding: "10px" }}
                 />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5"></Typography>
-                  <Typography>
-                  {props.title}
-                  </Typography>
-                </CardContent>
+               
                 <CardActions>
                   
-                  <Button size="small" color="primary">
-                    Remove
-                  </Button>
+                  
                 </CardActions>
               </Card>
             </Grid>
