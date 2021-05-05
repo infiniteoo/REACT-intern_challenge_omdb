@@ -18,7 +18,16 @@ export default makeStyles((theme) => ({
     borderRadius: "50%",
     height: "75%",
   },
-
+  cardGrid: {
+    padding: "20px 0px",
+    display: "flex",
+    flexFlow: "row",
+    flexDirection: "row",
+    /*  flexWrap: "wrap",  */
+    /*  justifyContent: "center",
+    alignItems: "center",  */
+  },
+  
   
   iconRight: {
     marginLeft: "20px",

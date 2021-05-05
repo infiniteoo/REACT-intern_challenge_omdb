@@ -19,20 +19,20 @@ import useStyles from './FinalistStyles.js'
 const Finalist = (props) => {
     const classes = useStyles();
     return (
-        <Container className={classes.cardGrid} maxWidth="md">
-          <Grid container spacing={4}>
+     
+          <Grid container spacing={12}>
            
-            <Grid item  xs={12} sm={6} md={4}>
+            <Grid item  xs={12} sm={6} md={12}>
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
-                  image={props.searchedMovie.poster}
-                  title={props.searchedMovie.title}
+                  image={props.poster}
+                  title={props.title}
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5"></Typography>
                   <Typography>
-                  {props.searchedMovie.title}
+                  {props.title}
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -45,7 +45,7 @@ const Finalist = (props) => {
             </Grid>
             
           </Grid>
-        </Container>
+      /*   </Container> */
     )
 }
 

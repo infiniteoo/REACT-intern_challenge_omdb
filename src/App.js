@@ -9,6 +9,7 @@ import {
   Toolbar,
   Typography,
   Grid,
+  Container
 } from "@material-ui/core";
 
 import useStyles from "./AppStyles";
@@ -65,15 +66,10 @@ const App = () => {
             <Grid item xs={2}></Grid>
            
           </Grid>
-
+          <Container className={classes.cardGrid} maxWidth="lg"> 
           {finalists[0] ? finalists.map((finalist) => (
             <Finalist
-              searchedMovie={searchedMovie}
-              setSearchedMovie={setSearchedMovie}
-              movieBeingSearched={movieBeingSearched}
-              setMovieBeingSearched={setMovieBeingSearched}
-              finalists={finalists}
-              setFinalists={setFinalists}
+              title={finalist.title}
             
             /> 
 
@@ -81,7 +77,7 @@ const App = () => {
           
           
           : null}
-          
+          </Container>
         </div>
       </main>
     </>

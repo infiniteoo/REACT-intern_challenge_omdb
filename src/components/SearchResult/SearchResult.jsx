@@ -17,6 +17,8 @@ const SearchResult = (props) => {
 
   const addFinalist = (movieObject) => {
 
+    // covert existing way to use this method so we can 1) check for duplicates in
+    // finalists array and 2) ensure the cap of the finalists array never exceeds 5
     
 
 
