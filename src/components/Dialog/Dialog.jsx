@@ -11,8 +11,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import PersonIcon from '@material-ui/icons/Person';
 import AddIcon from '@material-ui/icons/Add';
-import Typography from '@material-ui/core/Typography';
 import { blue } from '@material-ui/core/colors';
+import { Typography } from '@material-ui/core';
+import Slideshow from '../Slideshow/Slideshow'
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
 const useStyles = makeStyles({
@@ -36,28 +37,24 @@ function SimpleDialog(props) {
 
   return (
     <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-      <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle>
+      {/* <DialogTitle id="simple-dialog-title">Set backup account</DialogTitle> */}
+      <Slideshow finalists={props.finalists}/>
       <List>
-        {emails.map((email) => (
-          <ListItem button onClick={() => handleListItemClick(email)} key={email}>
-            <ListItemAvatar>
-              <Avatar className={classes.avatar}>
-                <PersonIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={email} />
+       
+        
+        {props.finalists.map((item, index) => (
+          <ListItem button key={index}>
+           
+              
+            
           </ListItem>
         ))}
+        
 
-        <ListItem autoFocus button onClick={() => handleListItemClick('addAccount')}>
-          <ListItemAvatar>
-            <Avatar>
-              <AddIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Add account" />
-        </ListItem>
+       
       </List>
+
+      
     </Dialog>
   );
 }
@@ -68,7 +65,7 @@ SimpleDialog.propTypes = {
   selectedValue: PropTypes.string.isRequired,
 };
 
-export default function SimpleDialogDemo() {
+export default function SimpleDialogDemo(props) {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
@@ -86,7 +83,7 @@ export default function SimpleDialogDemo() {
       <Button variant="contained" color="secondary" onClick={handleClickOpen}>
         SEE NOMINATIONS
       </Button>
-      <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
+      <SimpleDialog finalists={props.finalists} selectedValue={selectedValue} open={open} onClose={handleClose} />
     </div>
   );
 }

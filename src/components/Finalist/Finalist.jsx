@@ -1,17 +1,11 @@
 import React from "react";
-import ReactDOM from 'react-dom'
 
 import {
   Typography,
-  AppBar,
   Card,
   CardActions,
-  CardContent,
   CardMedia,
-  CssBaseline,
   Grid,
-  Toolbar,
-  Container,
   Button,
 } from "@material-ui/core";
 
@@ -24,19 +18,15 @@ const Finalist = (props) => {
 
   const removeFinalist = (e) => {
     let arrayIndex = e.currentTarget.getAttribute("arialabel") - 1;
-    console.log(arrayIndex)
+    console.log(arrayIndex);
     props.finalists.splice(arrayIndex, 1);
-    console.log('this should be the same array without that one Xed', props.finalists)
-    
-    props.setFinalists((oldArray) => [
-        ...props.finalists,
-        
-      ]);
-    
-   
+    console.log(
+      "this should be the same array without that one Xed",
+      props.finalists
+    );
 
-
-  }
+    props.setFinalists((oldArray) => [...props.finalists]);
+  };
   return (
     <Grid container spacing={12}>
       <Grid item xs={1} sm={3} md={12}>
@@ -50,7 +40,6 @@ const Finalist = (props) => {
             variant="h5"
             align="center"
             color="textSecondary"
-            
             style={{ paddingLeft: "5px" }}
           >
             {props.title}
@@ -67,13 +56,12 @@ const Finalist = (props) => {
           <br />
 
           <CardActions>
-            <Button 
-                size="small" 
-                color="secondary" 
-                ariaLabel={props.index}
-                startIcon={<CancelIcon />}  
-                onClick={(e)=>removeFinalist(e)}
-                
+            <Button
+              size="small"
+              color="secondary"
+              ariaLabel={props.index}
+              startIcon={<CancelIcon />}
+              onClick={(e) => removeFinalist(e)}
             />
           </CardActions>
         </Card>

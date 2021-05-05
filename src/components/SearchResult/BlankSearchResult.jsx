@@ -2,9 +2,7 @@ import React from "react";
 import {
   Card,
   Typography,
-  Button,
   Grid,
-  Box,
   CardMedia,
   CardActionArea,
   CardContent,
