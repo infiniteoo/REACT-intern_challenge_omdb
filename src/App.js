@@ -3,6 +3,7 @@ import SearchForm from "./components/SearchForm/SearchForm";
 import SearchResult from "./components/SearchResult/SearchResult";
 import BlankSearchResult from "./components/SearchResult/BlankSearchResult";
 import Finalist from "./components/Finalist/Finalist";
+import SimpleDialog from "./components/Dialog/Dialog";
 import {
   CssBaseline,
   AppBar,
@@ -11,11 +12,11 @@ import {
   Grid,
   Container,
   Box,
-  Button
+  Button,
 } from "@material-ui/core";
 
 import useStyles from "./AppStyles";
-import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom";
+
 
 const App = () => {
   const [searchedMovie, setSearchedMovie] = useState({
@@ -28,6 +29,7 @@ const App = () => {
 
   const [movieBeingSearched, setMovieBeingSearched] = useState("");
   const [finalists, setFinalists] = useState([]);
+  const [showSlideshow, setShowSlideshow] = useState(false)
 
   const classes = useStyles();
 
@@ -86,35 +88,26 @@ const App = () => {
                   </>
                 ))
               : null}
-
-            
           </Container>
-         
-           {finalists.length === 5 ? 
-           
+
+          {finalists.length === 5 ? (
             <Box textAlign="center">
-                <Button
-                  className={classes.searchButton}
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  onClick={() => {
-                    alert('see nominations')
-                    
-                  }}
-                >
-                  See Nominations
-                </Button>
+             {/*  <Button
+                className={classes.searchButton}
+                variant="contained"
+                color="primary"
+                size="large"
+                onClick={() => {
+                  setShowSlideshow(true)
+                }}
+              >
+                See Nominations
+              </Button> */}
+              <SimpleDialog finalists={finalists}/>
             </Box>
-            
-            
-            
-            : null
-
-
-             }
+          ) : null}
           
-         
+          
         </div>
       </main>
     </>

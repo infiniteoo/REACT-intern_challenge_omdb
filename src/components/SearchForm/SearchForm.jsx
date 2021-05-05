@@ -1,7 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
 import poster from "../../assets/award.jpg";
-import { Typography, TextField, Button, Grid, Box } from "@material-ui/core";
+import { Typography, TextField, Button, Grid, Box, Dialog } from "@material-ui/core";
 import useStyles from "./SearchFormStyles";
 
 const SearchForm = (props) => {
