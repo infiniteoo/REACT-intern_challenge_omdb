@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from 'react-dom'
 
 import {
   Typography,
@@ -20,6 +21,21 @@ import useStyles from "./FinalistStyles.js";
 
 const Finalist = (props) => {
   const classes = useStyles();
+
+  const removeFinalist = (e) => {
+    let arrayIndex = e.currentTarget.getAttribute("arialabel")
+    console.log(arrayIndex)
+    let newArray = props.finalists.splice(arrayIndex, 1);
+    
+    props.setFinalists((oldArray) => [
+        
+        ...newArray,
+      ]);
+    
+   
+
+
+  }
   return (
     <Grid container spacing={12}>
       <Grid item xs={1} sm={3} md={12}>
@@ -33,6 +49,7 @@ const Finalist = (props) => {
             variant="h5"
             align="center"
             color="textSecondary"
+            
             style={{ paddingLeft: "5px" }}
           >
             {props.title}
@@ -49,7 +66,14 @@ const Finalist = (props) => {
           <br />
 
           <CardActions>
-            <Button size="small" color="secondary" startIcon={<CancelIcon />} />
+            <Button 
+                size="small" 
+                color="secondary" 
+                ariaLabel={props.index}
+                startIcon={<CancelIcon />}  
+                onClick={(e)=>removeFinalist(e)}
+                
+            />
           </CardActions>
         </Card>
       </Grid>

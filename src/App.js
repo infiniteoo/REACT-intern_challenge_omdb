@@ -80,6 +80,8 @@ const App = () => {
                       runtime={finalist.runtime}
                       rated={finalist.rated}
                       index={index + 1}
+                      finalists={finalists}
+                      setFinalists={setFinalists}
                     />
                   </>
                 ))
