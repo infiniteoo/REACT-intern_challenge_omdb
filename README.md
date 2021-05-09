@@ -82,7 +82,7 @@ https://github.com/infiniteoo/intern_challenge-image_repo
 
 ## Features
 
-Utilizing the revolutionary JavaScript framework React.js, I created this slick, modern site with the help of Material-UI, axios, and the OMDB (Open Movie Database) API.  Upon landing, the user is asked to select five movies to nominate for this prestigious award.  After the selections are made, a dynamically-renderd button appears, that when clicked, displayed an animated pop-up modal which rotates their selections in a cool interface.
+Utilizing the revolutionary JavaScript framework React.js, I created this slick, modern site with the help of Material-UI, axios, and the OMDB (Open Movie Database) API.  Upon landing, the user is asked to select five movies to nominate for this prestigious award.  At any point during the process, the user can click the red "X" on their chosen movie to remove it from consideration.  After five selections are made, a dynamically-renderd button appears, that when clicked, displayed an animated pop-up modal which rotates their selections in a cool interface.
 
 ## Missed Opportunities
 
