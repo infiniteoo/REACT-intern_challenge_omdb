@@ -53,6 +53,8 @@ const App = () => {
               setSearchedMovie={setSearchedMovie}
               movieBeingSearched={movieBeingSearched}
               setMovieBeingSearched={setMovieBeingSearched}
+              finalists={finalists}
+              setFinalists={setFinalists}
             />
             {searchedMovie.title === "" ? (
               <BlankSearchResult />

@@ -104,9 +104,14 @@ const SearchForm = (props) => {
             Enter movie titles into the search bar to nominate your favorite
             movie to be considered for this prestigious award! <br />
             <br />
-            <Typography variant="h5" align="center" color="textSecondary">
-              Please pick 5 movies to nominate
-            </Typography>
+            {props.finalists.length < 5 ? (
+              <Typography variant="h5" align="center" color="secondary">
+               Please pick 5 movies 
+              </Typography>
+
+            ) : null
+          }
+            
             <br />
             <br />
             <Typography
